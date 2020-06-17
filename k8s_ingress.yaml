@@ -8,5 +8,5 @@ metadata:
     #   proxy_set_header Connection "Upgrade";
 spec:
   backend:
-    serviceName: jenkins
-    servicePort: 8080
+    serviceName: servico-uaigateway
+    servicePort: 5555

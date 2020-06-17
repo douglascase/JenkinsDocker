@@ -45,6 +45,8 @@ metadata:
 spec:
   ports:
     - port: 8080
+      name: tcp
+      nodePort: 30790
   selector:
     app: jenkins
     tier: jenkins

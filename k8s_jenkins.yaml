@@ -44,13 +44,11 @@ metadata:
     app: jenkins
 spec:
   ports:
-    - port: 80
-      targetPort: 8080
-      nodePort: 32256
+    - port: 8080
   selector:
     app: jenkins
     tier: jenkins
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment

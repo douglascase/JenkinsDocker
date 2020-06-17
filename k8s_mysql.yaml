@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: permissao-banco-dados
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3306
+      name: tcp
+      nodePort: 32000
+  selector:
+    name: mysql-pod
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: statefulset-mysql
+spec:
+  serviceName: mysql
+  selector:
+    matchLabels:
+      name: mysql-pod
+  template:
+    metadata:
+      labels:
+       name: mysql-pod
+    spec:
+      containers:
+        - name: container-mysql
+          image: mysql:5.7
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_DATABASE
+              value: "optimusweb"
+            - name: MYSQL_ROOT_PASSWORD
+              value: "12345"
+          volumeMounts:
+            - name: banco-dados
+              mountPath: /var/lib/mysql
+      volumes:
+       - name: banco-dados
+         persistentVolumeClaim:
+           claimName: permissao-banco-dados

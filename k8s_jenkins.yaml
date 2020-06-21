@@ -25,10 +25,35 @@ spec:
   hostPath:
     path: "/data/jenkins/"
 ---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: jenkins-maven
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/jenkins-maven/"
+---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: jenkins-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jenkins-maven-claim
 spec:
   accessModes:
     - ReadWriteMany
@@ -79,6 +104,8 @@ spec:
         volumeMounts:
         - name: jenkins-persistent-storage
           mountPath: /var/jenkins_home
+        - name: jenkins-maven-persistent-storage
+          mountPath: /root/.m2/repository
         - name: docker
           mountPath: /var/run/docker.sock
       volumes:
@@ -88,3 +115,6 @@ spec:
       - name: jenkins-persistent-storage
         persistentVolumeClaim:
           claimName: jenkins-claim
+      - name: jenkins-maven-persistent-storage
+        persistentVolumeClaim:
+          claimName: jenkins-maven-claim

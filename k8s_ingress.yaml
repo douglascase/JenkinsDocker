@@ -7,6 +7,31 @@ metadata:
     #   proxy_set_header Upgrade "websocket";
     #   proxy_set_header Connection "Upgrade";
 spec:
-  backend:
-    serviceName: servico-uaigateway
-    servicePort: 5555
+#   backend:
+#     serviceName: servico-uaigateway
+#     servicePort: 5555
+  rules:
+  - host: teste-case
+    http:
+      paths:
+      - backend:
+          serviceName: servico-uaigateway
+          servicePort: 5555
+  - host: uaicontroleteste.ddns.net
+    http:
+      paths:
+      - backend:
+          serviceName: servico-uaigateway
+          servicePort: 5555
+  - host: uaicontrolejenkins.ddns.net
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins
+          servicePort: 8080
+  - host: uaicontroleadmin.ddns.net
+    http:
+      paths:
+      - backend:
+          serviceName: servico-uaiadmin
+          servicePort: 8765

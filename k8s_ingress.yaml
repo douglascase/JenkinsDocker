@@ -29,9 +29,9 @@ spec:
       - backend:
           serviceName: jenkins
           servicePort: 8080
-  - host: uaicontroleadmin.ddns.net
+  - host: uaicontroleadelivery.ddns.net
     http:
       paths:
       - backend:
-          serviceName: servico-uaiadmin
-          servicePort: 8765
+          serviceName: servico-uaidelivery
+          servicePort: 8082

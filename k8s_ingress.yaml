@@ -44,3 +44,9 @@ spec:
       - backend:
           serviceName: servico-uaifrontv2
           servicePort: 80
+  - host: suporteuai-cliente.ddns.net
+    http:
+      paths:
+      - backend:
+          serviceName: servico-uaisuportecliente
+          servicePort: 80

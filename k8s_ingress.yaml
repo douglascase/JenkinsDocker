@@ -38,15 +38,3 @@ spec:
       - backend:
           serviceName: servico-uaidelivery
           servicePort: 8081
-  - host: suporteuai.ddns.net
-    http:
-      paths:
-      - backend:
-          serviceName: servico-uaifrontv2
-          servicePort: 80
-  - host: suporteuai-cliente.ddns.net
-    http:
-      paths:
-      - backend:
-          serviceName: servico-uaisuportecliente
-          servicePort: 80

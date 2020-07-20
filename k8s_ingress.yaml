@@ -38,3 +38,9 @@ spec:
       - backend:
           serviceName: servico-uaidelivery
           servicePort: 8081
+  - host: uaicontroleactivemq.ddns.net
+    http:
+      paths:
+      - backend:
+          serviceName: servico-activemq
+          servicePort: 8080

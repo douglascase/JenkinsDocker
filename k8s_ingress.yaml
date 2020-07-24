@@ -5,8 +5,8 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: 50m
     nginx.org/client-max-body-size: "50m"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: 1800
-    nginx.ingress.kubernetes.io/proxy-send-timeout: 1800
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"
     nginx.ingress.kubernetes.io/websocket-services: uaicontrole-ingress
     nginx.org/websocket-services: uaicontrole-ingress
     # nginx.ingress.kubernetes.io/configuration-snippet: |

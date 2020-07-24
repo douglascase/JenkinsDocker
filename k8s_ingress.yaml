@@ -7,8 +7,8 @@ metadata:
     nginx.org/client-max-body-size: "50m"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "1800"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "1800"
-    nginx.ingress.kubernetes.io/websocket-services: uaicontrole-ingress
-    nginx.org/websocket-services: uaicontrole-ingress
+    nginx.ingress.kubernetes.io/websocket-services: servico-uaigateway
+    nginx.org/websocket-services: servico-uaigateway
     # nginx.ingress.kubernetes.io/configuration-snippet: |
     #   proxy_http_version 1.1;
     #   proxy_set_header Upgrade "websocket";

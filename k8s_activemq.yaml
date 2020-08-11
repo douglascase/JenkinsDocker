@@ -32,7 +32,7 @@ spec:
         - name: container-activemq
           image: douglassouza93/activemq-http:v2
           ports:
-            - containerPort: 8081
+            - containerPort: 8080
             - containerPort: 8081
             - containerPort: 8161
             - containerPort: 61616

@@ -10,7 +10,7 @@ spec:
       name: tcp
     - port: 8080
       name: http
-    - port: 8082
+    - port: 8081
       name: tls
   selector:
     name: activemq-pod

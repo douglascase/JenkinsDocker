@@ -12,6 +12,7 @@ spec:
       nodePort: 31000
     - port: 8080
       name: http
+      nodePort: 31100
     - port: 8081
       name: tls
   selector:

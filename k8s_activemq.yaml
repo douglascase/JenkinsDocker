@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: servico-activemq
 spec:
+  type: LoadBalancer
   ports:
     - port: 8161
       name: ui

@@ -8,6 +8,7 @@ spec:
       name: ui
     - port: 61616
       name: tcp
+      nodePort: 31000
     - port: 8080
       name: http
     - port: 8081

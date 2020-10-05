@@ -7,6 +7,8 @@ spec:
   ports:
     - port: 8161
       name: ui
+    - port: 61613
+      name: tcp
     - port: 61616
       name: tcp
       nodePort: 31000

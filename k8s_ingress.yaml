@@ -18,6 +18,12 @@ spec:
 #     serviceName: servico-uaigateway
 #     servicePort: 5555
   rules:
+  - host: teste-case.local
+    http:
+      paths:
+      - backend:
+          serviceName: servico-uaigateway
+          servicePort: 5555
   - host: teste-case
     http:
       paths:

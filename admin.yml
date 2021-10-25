@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uaiadmin-deployment
+  labels:
+    type: spring-boot
+spec:
+  selector:
+    matchLabels:
+      name: uaiadmin-pod
+  template:
+    metadata:
+      labels:
+        name: uaiadmin-pod
+    spec:
+      containers:
+        - name: container-uaiadmin
+          image: gcr.io/appuaicontrole/uaiadmin:0.0.4
+          resources:
+            requests:
+              cpu: 50m
+          ports:
+            - containerPort: 8675
+          env:
+            - name: EUREKA_SERVER
+              value: "http://servico-uaieureka:8761"
+            - name: SPRING_PROFILES_ACTIVE
+              value: "prod"
+            - name: JAVA_OPTS
+              value: "-Duser.timezone=America/Sao_Paulo -Djava.net.preferIPv4Stack=true"
+          volumeMounts:
+            - name: tz-config
+              mountPath: /etc/localtime
+      volumes:
+        - name: tz-config
+          hostPath:
+            path: /usr/share/zoneinfo/America/Sao_Paulo
